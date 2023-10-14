@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_epg_url" translatable="false">"https://epg.112114.xyz/" </string>/>
+    <string name="app_source" translatable="false">https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json</string>
+
+    <string-array name="default_api_history" translatable="false">
+        <item>https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json</item>
+        <item>https://agit.ai/wwz09/ubuntu/raw/branch/master/main-js.json</item>
+        <item>http://itvbox.cc/tvbox/云星日记/1.m3u8</item>
+        <item>http://yydsys.top/duo</item>
+        <item>https://jihulab.com/ygbh1/box/-/raw/main/%E6%9C%88%E5%85%89%E5%AE%9D%E7%9B%92</item>
+        <item>https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json</item>
+        <item>http://8.210.232.168/xc.json</item>
+        <item>https://jihulab.com/yw88075/tvbox/-/raw/main/dr/js.json</item>
+        <item>http://rihou.cc:88/荷城茶秀</item>
+        <item>https://raw.liucn.cc/box/m.json</item>
+        <item>https://agit.ai/CloudMist/TVBox/raw/branch/master/item/lib/mary.json</item>
+        <item>https://agit.ai/ljc6666/TVBox/raw/branch/master/001.json</item>
+        <item>https://agit.ai/xiaohu/tvbox/raw/branch/main/dc1</item>
+        <item>https://jihulab.com/clear1/yingmi/-/raw/main/xh.txt</item>
+        <item>https://jihulab.com/ygbh1/box/-/blob/f2e22879d4bdd3757c078820616ea4f9b57679a6/%E6%9C%88%E5%85%89%E5%AE%9D.json</item>
+        <item>https://agit.ai/butterfly/001box/raw/branch/md/dc92.json</item>
+    </string-array>
+    <string-array name="default_ad_block" translatable="false">
+        <item>"wan.51img1.com"</item>
+        <item>"iqiyi.hbuioo.com"</item>
+        <item>"vip.ffzyad.com"</item>
+        <item>"https://lf1-cdn-tos.bytegoofy.com/obj/tos-cn-i-dy/455ccf9e8ae744378118e4bd289288dd"</item>
+    </string-array>
+
+</resources>
