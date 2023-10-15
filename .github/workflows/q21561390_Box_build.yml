@@ -55,6 +55,7 @@ jobs:
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标9.png app/src/main/res/drawable-xhdpi/app_icon.png
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标9.png app/src/main/res/drawable-xxhdpi/app_icon.png
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标9.png app/src/main/res/drawable-xxxhdpi/app_icon.png
+          cp -rf $GITHUB_WORKSPACE/DIY/qbox/config.xml app/src/main/res/values/config.xml
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/QBOXdialog_about.xml app/src/main/res/layout/dialog_about.xml
           cp -rf $GITHUB_WORKSPACE/DIY/png/app_bg.png app/src/main/res/drawable/app_bg.png
