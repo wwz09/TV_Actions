@@ -24,12 +24,12 @@ jobs:
     - name: Get Commit Hash
       id: getHash
       run: |
-        git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH .
-        git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH .
-        git clone --depth 1 $REPO_URL3 -b $REPO_BRANCH .
-        git clone --depth 1 $REPO_URL4 -b $REPO_BRANCH .
-        git clone --depth 1 $REPO_URL5 -b $REPO_BRANCH .
-        git clone --depth 1 $REPO_URL6 -b $REPO_BRANCH .
+        git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL3 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL4 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL5 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL6 -b $REPO_BRANCH 
         echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
     - name: Compare Commit Hash
