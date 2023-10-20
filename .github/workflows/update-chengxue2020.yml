@@ -38,7 +38,7 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v2
       with:
-        token: ${{ secrets.Checker_chengxue2020 }}
+        token: ${{ secrets.UPDATE_CHENGXUE2020 }}
         event-type: Source Code Update
 
     - name: Delete workflow runs
