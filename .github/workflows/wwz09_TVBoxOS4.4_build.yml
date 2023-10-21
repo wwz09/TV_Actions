@@ -1,12 +1,7 @@
 name: wwz09_TVBoxOS4.4_build
 
 on:
-  schedule:
-    - cron:  '46 5,17 * * *'
-  push:
-    branches:
-      - main
-  pull_request:
+  
   workflow_dispatch:
 
 jobs:
