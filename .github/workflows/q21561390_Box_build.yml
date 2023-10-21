@@ -1,7 +1,12 @@
 name: q21561390_Box_build
 
 on:
- 
+  schedule:
+    - cron:  '43 5,17 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
