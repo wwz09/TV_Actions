@@ -6,7 +6,6 @@ env:
   REPO_URL3: https://github.com/q215613905/TVBoxOS
   REPO_URL4: https://github.com/takagen99/Box
   REPO_URL5: https://github.com/wwz09/TVBoxOS4.4
-  REPO_URL6: https://github.com/XiaoRanLiu3119/TVBoxOS-Mobile
   REPO_BRANCH: main
   UPLOAD_RELEASE: true
 
@@ -32,8 +31,7 @@ jobs:
         git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH 
         git clone --depth 1 $REPO_URL3 -b $REPO_BRANCH 
         git clone --depth 1 $REPO_URL4 -b $REPO_BRANCH 
-        git clone --depth 1 $REPO_URL5 -b $REPO_BRANCH 
-        git clone --depth 1 $REPO_URL6 -b $REPO_BRANCH 
+        git clone --depth 1 $REPO_URL5 -b $REPO_BRANCH  
         echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
     - name: Compare Commit Hash
