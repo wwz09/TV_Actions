@@ -11,9 +11,9 @@ env:
   UPLOAD_RELEASE: true
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 15 10 * ?'
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 5,17 * * *'
 
 jobs:
   check:
