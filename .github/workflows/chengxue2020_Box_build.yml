@@ -1,7 +1,12 @@
 name: chengxue2020_Box_build
 
 on:
- 
+  schedule:
+    - cron:  '36 5,17 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
