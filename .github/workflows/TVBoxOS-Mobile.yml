@@ -1,12 +1,7 @@
 name: TVBoxOS-Mobile_build
 
 on:
-  schedule:
-    - cron:  '33 5,17 * * *'
-  push:
-    branches:
-      - main
-  pull_request:
+  
   workflow_dispatch:
 
 jobs:
