@@ -1,7 +1,12 @@
 name: TBox_build
 
 on:
-  
+  schedule:
+    - cron:  '30 5,17 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
