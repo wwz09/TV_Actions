@@ -8,10 +8,18 @@
         <item>https://agit.ai/wwz09/ubuntu/raw/branch/master/main-js.json</item>
         <item>http://itvbox.cc/tvbox/云星日记/1.m3u8</item>
         <item>http://yydsys.top/duo</item>
-        <item>https://agit.ai/wwz09/gao/raw/branch/master/XYQ.json</item>
+        <item>https://agit.ai/htx99/gaoTvBox/raw/branch/master/XYQ.json</item>
         <item>https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json</item>
-        <item>https://agit.ai/wwz09/gao/raw/branch/master/0828.json</item>
+        <item>https://agit.ai/htx99/gaoTvBox/raw/branch/master/0825.json</item>
         <item>http://rihou.cc:88/荷城茶秀</item>
+        <item>http://饭太硬.top/tv</item>
+        <item>https://weixine.net/ysc.json</item>
+        <item>https://wds.ecsxs.com/230989.json</item>
+        <item>https://神器每日推送.tk/pz.json</item>
+        <item>http://t.84jia.com:80/tvbox/tvbox.json</item>
+        <item>https://tvbox.cainisi.cf</item>
+        <item>http://xhww.fun:63/小米/DEMO.json</item>
+        <item>http://pandown.pro/tvbox/tvbox.json</item>
        
     </string-array>
     <string-array name="default_ad_block" translatable="false">
