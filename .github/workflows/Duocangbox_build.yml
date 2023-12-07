@@ -61,7 +61,7 @@ jobs:
           cp -rf $GITHUB_WORKSPACE/DIY/png/等待图标.png app/src/main/res/drawable/icon_loading.png
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
           cp -rf $GITHUB_WORKSPACE/DIY/tbox/TBOXdialog_about.xml app/src/main/res/layout/dialog_about.xml
-          sed -i 's%com.github.tvbox.osc.tk%com.github.tvbox.osc.${{ matrix.osName }}%g' app/build.gradl
+          sed -i 's%com.github.tvbox.osc.tk%com.github.tvbox.osc.${{ matrix.osName }}%g' app/build.gradle
            
       - name: Extra Modify
         if: ${{ env.commit }}
