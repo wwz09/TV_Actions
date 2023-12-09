@@ -1,12 +1,7 @@
 name: Duocangbox_build
 
 on:
-  schedule:
-    - cron:  '30 5,17 * * *'
-  push:
-    branches:
-      - main
-  pull_request:
+  
   workflow_dispatch:
 
 jobs:
@@ -62,7 +57,7 @@ jobs:
           cp -rf $GITHUB_WORKSPACE/DIY/App.java app/src/main/java/com/github/tvbox/osc/bbox/base/App.java
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
           sed -i 's%com.github.tvbox.osc.tk%com.github.tvbox.osc.${{ matrix.osName }}%g' app/build.gradle
-          sed -i 's%Jade%酷影视%g' app/src/main/res/values/strings.xml
+          sed -i 's%玉幂草%酷影视%g' app/src/main/res/values/strings.xml
           
            
       - name: Extra Modify
