@@ -57,6 +57,8 @@ public class ApiDialog extends BaseDialog {
         }
         else if (event.type == RefreshEvent.TYPE_PROXY_URL){
             proxyUrl.setText((String) event.obj);
+        else if (event.type == RefreshEvent.TYPE_IVQRCODE_URL){
+            ivQRCode.setText((String) event.obj);    
         }
     }
 
@@ -75,6 +77,7 @@ public class ApiDialog extends BaseDialog {
         liveApi.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
         epgApi.setText(Hawk.get(HawkConfig.EPG_URL, ""));
         proxyUrl.setText(Hawk.get(HawkConfig.PROXY_URL, ""));
+        ivQRCode.setText(Hawk.get(HawkConfig.IVQRCODE_URL, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/dc.txt"));
 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,7 +348,7 @@ public class ApiDialog extends BaseDialog {
         String defaultApiName = "自备份线路";
         String defaultApi = url + URL.DEFAULT_API_URL;
         // 默认仓库地址
-        String defaultStoreApi = "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/dc.txt";
+        String defaultStoreApi = url + URL.DEFAULT_STORE_API_URL;
 
         Map<String, String> defaultApiMap = Hawk.get(HawkConfig.API_MAP, new HashMap<>());
         defaultApiMap.put(defaultApiName, defaultApi);
