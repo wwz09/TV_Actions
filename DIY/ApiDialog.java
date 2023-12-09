@@ -57,9 +57,6 @@ public class ApiDialog extends BaseDialog {
         }
         else if (event.type == RefreshEvent.TYPE_PROXY_URL){
             proxyUrl.setText((String) event.obj);
-        }   
-        else if (event.type == RefreshEvent.TYPE_IVQRCODE_URL){
-            ivQRCode.setText((String) event.obj);    
         }
     }
 
@@ -75,10 +72,9 @@ public class ApiDialog extends BaseDialog {
         proxyUrl = findViewById(R.id.proxyInput);
         //内置网络接口在此处添加
         inputApi.setText(Hawk.get(HawkConfig.API_URL, ""));
-        liveApi.setText(Hawk.get(HawkConfig.LIVE_URL, ""));
-        epgApi.setText(Hawk.get(HawkConfig.EPG_URL, ""));
-        proxyUrl.setText(Hawk.get(HawkConfig.PROXY_URL, ""));
-        ivQRCode.setText(Hawk.get(HawkConfig.IVQRCODE_URL, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/dc.txt"));
+        liveApi.setText(Hawk.get(HawkConfig.LIVE_URL, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/a.txt"));
+        epgApi.setText(Hawk.get(HawkConfig.EPG_URL, "http://diyp.112114.xyz/?ch"));
+        proxyUrl.setText(Hawk.get(HawkConfig.PROXY_URL, "https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json"));
 
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
