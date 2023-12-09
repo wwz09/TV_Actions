@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: mlabalabala
+          - userName: chengxue2020
             repoName: box
             branchName: main
             appName: DCTVBOX
