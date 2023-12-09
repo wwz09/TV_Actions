@@ -345,7 +345,7 @@ public class ApiDialog extends BaseDialog {
         String defaultApiName = "自备份线路";
         String defaultApi = url + URL.DEFAULT_API_URL;
         // 默认仓库地址
-        String defaultStoreApi = url + URL.DEFAULT_STORE_API_URL;
+        String defaultStoreApi = "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/dc.txt";
 
         Map<String, String> defaultApiMap = Hawk.get(HawkConfig.API_MAP, new HashMap<>());
         defaultApiMap.put(defaultApiName, defaultApi);
@@ -354,10 +354,10 @@ public class ApiDialog extends BaseDialog {
         defaultApiHistory.add(defaultApiName);
 
         // 不添加默认线路
-        putDefault(HawkConfig.API_URL, defaultApi);
-        putDefault(HawkConfig.API_NAME, defaultApiName);
-        putDefault(HawkConfig.API_NAME_HISTORY, defaultApiHistory);
-        putDefault(HawkConfig.API_MAP, defaultApiMap);
+        //putDefault(HawkConfig.API_URL, defaultApi);
+        //putDefault(HawkConfig.API_NAME, defaultApiName);
+        //putDefault(HawkConfig.API_NAME_HISTORY, defaultApiHistory);
+        //putDefault(HawkConfig.API_MAP, defaultApiMap);
 
         Hawk.put(HawkConfig.DEFAULT_STORE_API, defaultStoreApi);
     }
