@@ -60,7 +60,7 @@ jobs:
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标10.png app/src/main/res/drawable/app_icon.png
           cp -rf $GITHUB_WORKSPACE/DIY/png/等待图标.png app/src/main/res/drawable/icon_loading.png
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
-          cp -rf $GITHUB_WORKSPACE/DIY/URL.java app/src/main/java/com/github/tvbox/osc/bbox/ui/constant/URL.java
+          cp -rf $GITHUB_WORKSPACE/DIY/URL.java app/src/main/java/com/github/tvbox/osc/bbox/constant/URL.java
           cp -rf $GITHUB_WORKSPACE/DIY/ApiDialog.java app/src/main/java/com/github/tvbox/osc/bbox/ui/dialog/ApiDialog.java
           cp -rf $GITHUB_WORKSPACE/DIY/tbox/TBOXdialog_about.xml app/src/main/res/layout/dialog_about.xml
           sed -i 's%HawkConfig.API_URL, ""%HawkConfig.API_URL, "https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json"%g' app/src/main/java/com/github/tvbox/osc/bbox/ui/dialog/ApiDialog.java
