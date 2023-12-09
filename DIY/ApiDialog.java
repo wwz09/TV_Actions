@@ -57,6 +57,7 @@ public class ApiDialog extends BaseDialog {
         }
         else if (event.type == RefreshEvent.TYPE_PROXY_URL){
             proxyUrl.setText((String) event.obj);
+        }   
         else if (event.type == RefreshEvent.TYPE_IVQRCODE_URL){
             ivQRCode.setText((String) event.obj);    
         }
