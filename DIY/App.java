@@ -100,7 +100,7 @@ public class App extends MultiDexApplication {
         Hawk.init(this).build();
 
         // 默认线路地址
-        String defaultApiName = "main";
+        String defaultApiName = "默认线路";
         String defaultApi = "https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json";
         // 默认仓库地址
         // String defaultStoreApi = "https://raw.staticdn.net/mlabalabala/TVResource/main/boxCfg/ori_source.json";
