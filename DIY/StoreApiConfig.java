@@ -62,8 +62,6 @@ public class StoreApiConfig {
         ArrayList<String> storeNameHistory = Hawk.get(HawkConfig.STORE_API_NAME_HISTORY, new ArrayList<>());
 
         if (storeMap.isEmpty()) {
-            Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
-            String name = "";
             String sotreApi = Hawk.get(HawkConfig.DEFAULT_STORE_API, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json");
             storeMap.put(name, sotreApi);
             storeNameHistory.add(name);
