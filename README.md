@@ -23,7 +23,7 @@
 - [o0HalfLife0o/TVBoxOSC](https://github.com/o0HalfLife0o/TVBoxOSC)   大神在线打包库
 - [chengxue2020/takagen99](https://github.com/chengxue2020/takagen99)  chengxue2020大版TVBox
 - [chengxue2020/box](https://github.com/chengxue2020/box)  chengxue2020大多仓版本
-- [muxd93/TVBoxOS_XD]https://github.com/muxd93/TVBoxOS_XD)  muxd93大多线路版
+- [muxd93/TVBoxOS_XD](https://github.com/muxd93/TVBoxOS_XD)  muxd93大多线路版
 - [XiaoRanLiu3119/TVBoxOS-Mobile](https://github.com/XiaoRanLiu3119/TVBoxOS-Mobile) XiaoRanLiu3119大修改移动版
 - [wwz09/TVBoxOS4.4](https://github.com/wwz09/TVBoxOS4.4)  备份库支持安卓4.4系统
 
