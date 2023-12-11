@@ -64,7 +64,7 @@ public class StoreApiConfig {
         if (storeMap.isEmpty()) {
             Toast.makeText(context, "仓库为空，使用默认仓库", Toast.LENGTH_SHORT).show();
             String name = "默认仓库";
-            String sotreApi = Hawk.get(HawkConfig.DEFAULT_STORE_API, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json");
+            String sotreApi = Hawk.get(HawkConfig.DEFAULT_STORE_API, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/dc1.json");
             storeMap.put(name, sotreApi);
             storeNameHistory.add(name);
             Hawk.put(HawkConfig.STORE_API_NAME_HISTORY, storeNameHistory);
@@ -75,7 +75,7 @@ public class StoreApiConfig {
 
         String storeUrl = storeMap.get(Hawk.get(HawkConfig.STORE_API_NAME, ""));
 
-        LOG.i("https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json：" + storeUrl);
+        LOG.i("订阅仓库地址：" + storeUrl);
 
         // 处理多仓获取多节点
         StoreApiConfig.get().MyRequest(storeUrl, new StoreApiConfigCallback() {
