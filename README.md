@@ -17,15 +17,13 @@
 
 ## 感谢各位大神
 
-- [CatVodTVOfficial/TVBoxOSC](https://github.com/CatVodTVOfficial/TVBoxOSC)
-- [q215613905/TVBoxOS](https://github.com/q215613905/TVBoxOS) 
-- [takagen99/Box](https://github.com/takagen99/Box)
-- [o0HalfLife0o/TVBoxOSC](https://github.com/o0HalfLife0o/TVBoxOSC)
-- [chengxue2020/takagen99](https://github.com/chengxue2020/takagen99)
-- [breadmyth/television2-takagen99](https://github.com/breadmyth/television2-takagen99)
-- [wtyn/TVBoxOS](https://github.com/wtyn/TVBoxOS)
-- [gjf026/TVBoxOS](https://github.com/gjf026/TVBoxOS)
-- [HongFeiQ/Box](https://github.com/HongFeiQ/Box)
-- [Baobei321/Box](https://github.com/Baobei321/Box)
-- [zxyadc/TVBoxOS-Q](https://github.com/zxyadc/TVBoxOS-Q)
-- [wxwxwz/TVBox](https://github.com/wxwxwz/TVBox)
+- [CatVodTVOfficial/TVBoxOSC](https://github.com/CatVodTVOfficial/TVBoxOSC) 
+- [q215613905/TVBoxOS](https://github.com/q215613905/TVBoxOS)  Q版TVBox
+- [takagen99/Box](https://github.com/takagen99/Box)  俊版TVBox
+- [o0HalfLife0o/TVBoxOSC](https://github.com/o0HalfLife0o/TVBoxOSC)   大神在线打包库
+- [chengxue2020/takagen99](https://github.com/chengxue2020/takagen99)  chengxue2020大版TVBox
+- [chengxue2020/box](https://github.com/chengxue2020/box)  chengxue2020大多仓版本
+- [muxd93/TVBoxOS_XD]https://github.com/muxd93/TVBoxOS_XD)  muxd93大多线路版
+- [XiaoRanLiu3119/TVBoxOS-Mobile](https://github.com/XiaoRanLiu3119/TVBoxOS-Mobile) XiaoRanLiu3119大修改移动版
+- [wwz09/TVBoxOS4.4](https://github.com/wwz09/TVBoxOS4.4)  备份库支持安卓4.4系统
+
