@@ -1,4 +1,4 @@
-name: chengxue2020_Box_build
+name: TVBox_多线路版_build
 
 on:
   schedule:
@@ -16,12 +16,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: chengxue2020
-            repoName: takagen99
+          - userName: muxd93
+            repoName: TVBoxOS_XD
             branchName: main
-            appName: chengxue2020_Box
-            osName: ch
-   
+            appName: DCB_TVBOX
+            osName: dbc
+          
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -56,18 +56,19 @@ jobs:
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
         run: |
-          cp -rf $GITHUB_WORKSPACE/DIY/png/图标11-1.png app/src/main/res/drawable/app_banner.png
-          cp -rf $GITHUB_WORKSPACE/DIY/png/图标11.png app/src/main/res/drawable/app_icon.png
-          cp -rf $GITHUB_WORKSPACE/DIY/png/等待图标.png app/src/main/res/drawable/icon_loading.png
-          cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
-          sed -i 's/MM月dd日/yyyy年 MM月 dd日/g' app/src/main/res/values-zh/strings.xml
-          sed -i 's%TVBox%领主TV%g' app/src/main/res/values-zh/strings.xml 
-          sed -i 's%https://chengxue2020.github.io/Cat-ports/main.json%https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json%g' app/src/main/res/values-zh/strings.xml
-          sed -i 's%https://chengxue2020.github.io/Cat-ports/main.json%https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json%g' app/src/main/res/values/strings.xml
-          sed -i 's%com.github.tvbox.osc.tk%com.github.tvbox.osc.${{ matrix.osName }}%g' app/build.gradle
-          sed -i 's%HOME_REC, 2%HOME_REC, 0%g' app/src/main/java/com/github/tvbox/osc/base/App.java
-          sed -i 's%HomeActivity.getRes().getString(R.string.app_source));% "https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json");%g' app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java     
-           
+          cp -rf $GITHUB_WORKSPACE/DIY/png/图标5-1.png app/src/main/res/drawable/app_banner.png
+          cp -rf $GITHUB_WORKSPACE/DIY/png/图标5.png app/src/main/res/drawable-hdpi/app_icon.png
+          cp -rf $GITHUB_WORKSPACE/DIY/png/图标5.png app/src/main/res/drawable-xhdpi/app_icon.png
+          cp -rf $GITHUB_WORKSPACE/DIY/png/图标5.png app/src/main/res/drawable-xxhdpi/app_icon.png
+          cp -rf $GITHUB_WORKSPACE/DIY/png/图标5.png app/src/main/res/drawable-xxxhdpi/app_icon.png
+          cp -rf $GITHUB_WORKSPACE/DIY/qbox/config.xml app/src/main/res/values/config.xml
+          cp -rf $GITHUB_WORKSPACE/DIY/png/app_bg.png app/src/main/res/drawable/app_bg.png  
+          sed -i 's%com.github.tvbox.osc%com.github.tvbox.osc.${{ matrix.osName }}%g' app/build.gradle
+          sed -i 's%TVBox%源源影视%g' app/src/main/res/values/strings.xml
+          sed -i 's%TVBox%源源影视%g' app/src/main/res/values-zh/strings.xml 
+          sed -i 's%Hawk.put(HawkConfig.PLAY_TYPE, 1);%Hawk.put(HawkConfig.HOME_REC, 0);       // Home Rec 0=豆瓣, 1=推荐, 2=历史\n Hawk.put(HawkConfig.PLAY_TYPE, 1);      // Player   0=系统, 1=IJK, 2=Exo\n Hawk.put(HawkConfig.IJK_CODEC, "硬解码");           // IJK Render 软解码, 硬解码\n%g' app/src/main/java/com/github/tvbox/osc/base/App.java
+          
+          
       - name: Extra Modify
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
@@ -121,7 +122,7 @@ jobs:
           rm -rf apk/
           mkdir -p apk/
           for file in `find ~ -name "*.apk" -print`; do
-           mv "$file" apk/${{ matrix.appName }}_${{ env.tag }}.apk
+            mv "$file" apk/${{ matrix.appName }}_${{ env.tag }}.apk
           done
       
       - name: Upload App To Artifact
