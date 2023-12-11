@@ -75,7 +75,7 @@ public class StoreApiConfig {
 
         String storeUrl = storeMap.get(Hawk.get(HawkConfig.STORE_API_NAME, ""));
 
-        LOG.i("订阅仓库地址：" + storeUrl);
+        LOG.i("https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json：" + storeUrl);
 
         // 处理多仓获取多节点
         StoreApiConfig.get().MyRequest(storeUrl, new StoreApiConfigCallback() {
