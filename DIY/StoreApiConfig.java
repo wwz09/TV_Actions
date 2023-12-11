@@ -62,7 +62,7 @@ public class StoreApiConfig {
         ArrayList<String> storeNameHistory = Hawk.get(HawkConfig.STORE_API_NAME_HISTORY, new ArrayList<>());
 
         if (storeMap.isEmpty()) {
-            Toast.makeText(context, "仓库为空，使用默认仓库", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json", Toast.LENGTH_SHORT).show();
             String name = "默认仓库";
             String sotreApi = Hawk.get(HawkConfig.DEFAULT_STORE_API, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json");
             storeMap.put(name, sotreApi);
@@ -73,7 +73,7 @@ public class StoreApiConfig {
             Hawk.put(HawkConfig.STORE_API, sotreApi);
         }
 
-        String storeUrl = storeMap.get(Hawk.get(HawkConfig.STORE_API_NAME, "https://agit.ai/wwz09/ubuntu/raw/branch/master/TXT/mr.json"));
+        String storeUrl = storeMap.get(Hawk.get(HawkConfig.STORE_API_NAME, ""));
 
         LOG.i("订阅仓库地址：" + storeUrl);
 
