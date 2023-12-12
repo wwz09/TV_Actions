@@ -146,7 +146,7 @@ jobs:
           removeArtifacts: true
           artifacts: |
             ${{ matrix.repoName }}/apk/*.apk
-	    
+  
       - name: 删除旧发布的固件
         uses: dev-drprasad/delete-older-releases@v0.2.1
         if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
