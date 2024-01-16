@@ -149,13 +149,6 @@ jobs:
           artifacts: |
             ${{ matrix.repoName }}/apk/*.apk
   
-      - name: 生成发布标签
-        id: tag
-        if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
-        run: |
-           echo -e "1 takagen99版，" >> release.txt
-           echo "release_tag=$(date +"%Y.%m.%d-%H%M-takagen99版")" >> $GITHUB_OUTPUT
-           echo "status=success" >> $GITHUB_OUTPUT
             
       - name: 删除过时工作流程
         uses: Mattraks/delete-workflow-runs@v2
