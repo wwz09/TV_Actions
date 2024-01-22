@@ -2,7 +2,7 @@ name: TBox_build
 
 on:
   schedule:
-    - cron:  '30 6,26 * * *'
+    - cron:  '30 5,17 * * *'
   push:
     branches:
       - main
