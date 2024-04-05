@@ -180,10 +180,10 @@ jobs:
         with:
           name: ${{ env.tag }}
           tag_name: ${{ env.tag }}_${{ matrix.userName }}
-          body_path: TVBoxOSC/Changelog.txt
+          body_path: ${{ matrix.repoName }}/Changelog.txt
           files: |
-            TVBoxOSC/apk/*
-            TVBoxOSC/${{ matrix.userName }}_${{ env.commit_id }}_src.zip
+            ${{ matrix.repoName }}/apk/*
+            ${{ matrix.repoName }}/${{ matrix.userName }}_${{ env.commit_id }}_src.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
