@@ -92,7 +92,7 @@ jobs:
           signingConfigs="$(echo "$signingConfigs" |base64 -d )"
           signingConfig="$(echo "$signingConfig" |base64 -d )"
           sed -i -e "/defaultConfig {/i\\$signingConfigs " -e "/debug {/a\\$signingConfig " -e "/release {/a\\$signingConfig " ./app/build.gradle
-          cp -f ${{ github.workspace }}/actions/.github/TVBoxOSC.jks ./app/TVBoxOSC.jks
+          cp -f ${{ github.workspace }}/actions/.github/workflows/TVBoxOSC.jks ./app/TVBoxOSC.jks
           sed -i '$a\RELEASE_STORE_FILE=./TVBoxOSC.jks'     ./gradle.properties
           sed -i '$a\RELEASE_KEY_ALIAS=TVBoxOSC'            ./gradle.properties
           sed -i '$a\RELEASE_STORE_PASSWORD=TVBoxOSC'       ./gradle.properties
