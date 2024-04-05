@@ -68,6 +68,9 @@ jobs:
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
         run: |
+          cp -rf ${{ github.workspace }}/actions/DIY/png/图标7-1.png app/src/main/res/drawable/app_banner.png
+          cp -rf ${{ github.workspace }}/actions/DIY/png/图标7.png app/src/main/res/drawable/app_icon.png
+          cp -rf ${{ github.workspace }}/actions/DIY/png/等待图标.png app/src/main/res/drawable/icon_loading.png
           sed -i 's%TVBox%大仙TV%g' app/src/main/res/values-zh/strings.xml 
           sed -i 's%app_source">%app_source">https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json%g' app/src/main/res/values-zh/strings.xml
           sed -i 's%app_source">%app_source">https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json%g' app/src/main/res/values/strings.xml
