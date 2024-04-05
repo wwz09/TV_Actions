@@ -156,49 +156,34 @@ jobs:
             fi
           done
 
-      #- name: Write Update Changelog
-        #if: ${{ env.commit }}
-        #run: |
-          #cd actions
-          # myLastCommit=`git log --oneline |grep -o '[a-z0-9]\{40\}' |head -1`
-          # myLastCommit=$(grep "${{ matrix.userName }}" README.md |grep -o '[a-z0-9]\{40\}')
-         # myLastCommit=$(grep '[a-z0-9]\{40\}' ./log/${{ matrix.userName }}.txt)
-          #echo $myLastCommit
-          #cd ../${{ matrix.repoName }}
-          #export LESSCHARSET=utf-8
-          #if [ "${{ env.commit }}" == "${myLastCommit}" ]; then
-            #COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }} -1 |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
-          #else
-            #COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }}...${myLastCommit:0:7} |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
-          #fi
-          #echo -e "Credit: [${{ matrix.userName }}](${{ matrix.repoUrl }})\n${COMMIT_MESSAGE}" > Changelog.txt
-          #echo "$COMMIT_MESSAGE" > desc.txt
-
-      - name: Release App
-        uses: softprops/action-gh-release@v1
+      - name: Upload App To Artifact
+        uses: actions/upload-artifact@v3
+        if: ${{ env.commit }}
+        with:
+          name: ${{ matrix.appName }}
+          path: ${{ matrix.repoName }}/apk/*
+       
+      - name: Whether Or Not to Publish
+        if: ${{ inputs.donotpublish && env.commit }}
+        run: |
+          echo "commit=" >> $GITHUB_ENV
+          
+      - name: Release and Upload Assets
+        uses: ncipollo/release-action@v1
         if: ${{ env.commit }}
         with:
           name: ${{ env.tag }}
-          tag_name: ${{ env.tag }}_${{ matrix.userName }}
-          body_path: ${{ matrix.repoName }}/Changelog.txt
-          files: |
-            ${{ matrix.repoName }}/apk/*
-            ${{ matrix.repoName }}/${{ matrix.userName }}_${{ env.commit_id }}_src.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit And Push
-        if: ${{ env.commit }}
-        working-directory: actions
-        continue-on-error: true
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git pull
-          # sed -i "/Update Time/c\\+ Update Time: ${{ env.update_time }}" README.md
-          # sed -i "/${{ matrix.userName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
-          echo "${{ env.commit }}" > ./log/${{ matrix.userName }}.txt
-          git add --all
-          git commit -m "${{ matrix.userName }}_${{ env.commit }}"
-          git push origin main
+          tag: ${{ env.tag }}
+          allowUpdates: true
+          removeArtifacts: true
+          artifacts: |
+            ${{ matrix.repoName }}/apk/*.apk
+            
+      - name: 删除过时工作流程
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          retain_days: 1
+          keep_minimum_runs: 3
 
