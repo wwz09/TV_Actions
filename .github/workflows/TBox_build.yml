@@ -16,8 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: takagen99
-            repoName: Box
+          - userName: wwz09
+            repoName: TBox
             branchName: main
             appName: T_TVBox
             osName: TTV
