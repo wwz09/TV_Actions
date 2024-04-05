@@ -61,7 +61,7 @@ jobs:
           cp -rf $GITHUB_WORKSPACE/DIY/png/等待图标.png app/src/main/res/drawable/icon_loading.png
           cp -rf $GITHUB_WORKSPACE/DIY/qbox/epg_data.json app/src/main/assets/epg_data.json
           cp -rf $GITHUB_WORKSPACE/DIY/tbox/TBOXdialog_about.xml app/src/main/res/layout/dialog_about.xml
-          cp -rf $GITHUB_WORKSPACE/DIY/tbox/ExoMediaPlayer.xml app/src/main/java/xyz/doikki/videoplayer/exo/ExoMediaPlayer.xml
+          cp -rf $GITHUB_WORKSPACE/DIY/tbox/ExoMediaPlayer.java app/src/main/java/xyz/doikki/videoplayer/exo/ExoMediaPlayer.java
           sed -i 's/MM月dd日/yyyy年 MM月 dd日/g' app/src/main/res/values-zh/strings.xml
           sed -i 's%TVBox%大仙TV%g' app/src/main/res/values-zh/strings.xml 
           sed -i 's%app_source">%app_source">https://agit.ai/wwz09/ubuntu/raw/branch/master/main.json%g' app/src/main/res/values-zh/strings.xml
