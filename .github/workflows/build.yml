@@ -164,7 +164,7 @@ jobs:
           # myLastCommit=$(grep "${{ matrix.userName }}" README.md |grep -o '[a-z0-9]\{40\}')
           myLastCommit=$(grep '[a-z0-9]\{40\}' ./log/${{ matrix.userName }}.txt)
           echo $myLastCommit
-          cd ../TVBoxOSC
+          cd ../${{ matrix.repoName }}
           export LESSCHARSET=utf-8
           if [ "${{ env.commit }}" == "${myLastCommit}" ]; then
             COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }} -1 |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
