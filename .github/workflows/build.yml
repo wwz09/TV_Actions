@@ -53,7 +53,7 @@ jobs:
       - name: Clone Source Code
         if: ${{ env.commit }}
         run: |
-          git clone -b ${{ matrix.branchName }} ${{ matrix.repoUrl }} TVBoxOSC
+          git clone -b ${{ matrix.branchName }} ${{ matrix.repoUrl }} ${{ matrix.repoName }}
 
       - name: Compress Source Code
         if: ${{ env.commit }}
