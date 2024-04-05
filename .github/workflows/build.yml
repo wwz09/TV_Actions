@@ -156,23 +156,23 @@ jobs:
             fi
           done
 
-      - name: Write Update Changelog
-        if: ${{ env.commit }}
-        run: |
-          cd actions
+      #- name: Write Update Changelog
+        #if: ${{ env.commit }}
+        #run: |
+          #cd actions
           # myLastCommit=`git log --oneline |grep -o '[a-z0-9]\{40\}' |head -1`
           # myLastCommit=$(grep "${{ matrix.userName }}" README.md |grep -o '[a-z0-9]\{40\}')
-          myLastCommit=$(grep '[a-z0-9]\{40\}' ./log/${{ matrix.userName }}.txt)
-          echo $myLastCommit
-          cd ../${{ matrix.repoName }}
-          export LESSCHARSET=utf-8
-          if [ "${{ env.commit }}" == "${myLastCommit}" ]; then
-            COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }} -1 |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
-          else
-            COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }}...${myLastCommit:0:7} |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
-          fi
-          echo -e "Credit: [${{ matrix.userName }}](${{ matrix.repoUrl }})\n${COMMIT_MESSAGE}" > Changelog.txt
-          echo "$COMMIT_MESSAGE" > desc.txt
+         # myLastCommit=$(grep '[a-z0-9]\{40\}' ./log/${{ matrix.userName }}.txt)
+          #echo $myLastCommit
+          #cd ../${{ matrix.repoName }}
+          #export LESSCHARSET=utf-8
+          #if [ "${{ env.commit }}" == "${myLastCommit}" ]; then
+            #COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }} -1 |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
+          #else
+            #COMMIT_MESSAGE=$(git log --pretty=format:%B ${{ env.commit_id }}...${myLastCommit:0:7} |sed -e 's# \{2,\}#\n#g' -e '/^Merge pull/d' -e 's#"#\\"#g' -e '/^$/d' |cat -n |sort -k2,2 -k1,1n |uniq -f1 |sort -k1,1n |cut -f2- )
+          #fi
+          #echo -e "Credit: [${{ matrix.userName }}](${{ matrix.repoUrl }})\n${COMMIT_MESSAGE}" > Changelog.txt
+          #echo "$COMMIT_MESSAGE" > desc.txt
 
       - name: Release App
         uses: softprops/action-gh-release@v1
