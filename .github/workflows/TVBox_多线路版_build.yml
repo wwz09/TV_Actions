@@ -9,7 +9,7 @@ on:
   #pull_request:
   workflow_dispatch:
 env:
-   DIY_P1_SH: ./DIY/muxd93.sh
+   DIY_P1_SH: ${{ github.workspace }}/DIY/muxd93.sh
   
    
 jobs:
