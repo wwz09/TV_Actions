@@ -56,8 +56,8 @@ jobs:
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
         run: |
-          chmod +x ${{ github.workspace }}/DIY/muxd93.sh
-          ${{ github.workspace }}/DIY/muxd93.sh
+          chmod +x ./DIY/muxd93.sh
+          ./DIY/muxd93.sh
           
       - name: Extra Modify
         if: ${{ env.commit }}
