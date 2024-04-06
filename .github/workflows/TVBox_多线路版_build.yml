@@ -60,7 +60,7 @@ jobs:
         working-directory: ${{ matrix.repoName }}
         run: |
           chmod +x $DIY_P1_SH
-          $GITHUB_WORKSPACE/$DIY_P1_SH
+          bash $DIY_P1_SH
           
       - name: Extra Modify
         if: ${{ env.commit }}
