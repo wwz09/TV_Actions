@@ -24,7 +24,7 @@ jobs:
    
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Check New Commit
@@ -36,7 +36,6 @@ jobs:
             echo "commit=$commit" >> $GITHUB_ENV
             echo "commitS=${commit:0:7}" >> $GITHUB_ENV
           fi
-          
       - name: Checkout Source Code
         if: ${{ env.commit }}
         run: |
@@ -72,21 +71,27 @@ jobs:
         working-directory: ${{ matrix.repoName }}
         run: |
           echo '修改VersionName'
-          sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }}\'#" app/build.gradle
-          sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
+          if [ "${{ matrix.userName }}" == "takagen99" ]; then
+            # 进行 sed 修改
+            sed -i 's/\.concat(buildTime())/ +\"${{ env.tag }}\"/g' app/build.gradle 
+            # 目前关于页面没有合并我的分支
+            sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
+          else
+             sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }}\'#" app/build.gradle
+             sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
+          fi 
           echo 'crosswalk源，防挂'
           if grep -q 'crosswalk' build.gradle; then
             sed -i "/crosswalk/a\        maven { url 'https://o0halflife0o.github.io/crosswalk/releases/crosswalk/android/maven2' }" build.gradle
           else
             sed -i "/jitpack.io/a\        maven { url 'https://o0halflife0o.github.io/crosswalk/releases/crosswalk/android/maven2' }" build.gradle
           fi
-      - name: Option For Test
-        if: ${{ inputs.testOption }}
+      - name: Compress Source Code
+        if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
         run: |
-          #添加arm64支持，不支持ijk解码
-          sed -i "/armeabi-v7a[\'\"]$/s#\$#, 'arm64-v8a'#" app/build.gradle
-          sed -i "/armeabi-v7a[\'\"]$/s#\$#, 'arm64-v8a'#" player/build.gradle
+          #zip -q -x ".git/*" -x  ".github/*" -r source-${{ env.commitS }}.zip .
+          tar -cJf source-${{ env.commitS }}.tar.xz --exclude=.git --exclude=.github *
       - name: Release Apk Sign
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
@@ -101,11 +106,13 @@ jobs:
           sed -i '$a\RELEASE_KEY_ALIAS=TVBoxOSC'            ./gradle.properties
           sed -i '$a\RELEASE_STORE_PASSWORD=TVBoxOSC'       ./gradle.properties
           sed -i '$a\RELEASE_KEY_PASSWORD=TVBoxOSC'         ./gradle.properties
-          
-      - name: Setup Gradle
+      - uses: actions/setup-java@v4
+        if: ${{ matrix.java_ver }}
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java_ver }}
+      - uses: gradle/actions/setup-gradle@v4
         if: ${{ env.commit }}
-        uses: gradle/gradle-build-action@v2
-        
       - name: Build With Gradle
         if: ${{ env.commit }}
         working-directory: ${{ matrix.repoName }}
@@ -124,12 +131,12 @@ jobs:
           done
       
       - name: Upload App To Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ env.commit }}
         with:
-          name: ${{ matrix.appName }}
-          path: ${{ matrix.repoName }}/apk/*
-       
+          name: ${{ matrix.userName }}-${{ matrix.repoName }}
+          path: |
+            ${{ matrix.repoName }}/apk/*
       - name: Whether Or Not to Publish
         if: ${{ inputs.donotpublish && env.commit }}
         run: |
