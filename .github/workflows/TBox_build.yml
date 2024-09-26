@@ -53,7 +53,7 @@ jobs:
 
       - name: DIY
         if: ${{ env.commit }}
-        working-directory: ${{ matrix.repoName }}
+        working-directory: TVBoxOSC
         run: |
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标9-1.png app/src/main/res/drawable/app_banner.png
           cp -rf $GITHUB_WORKSPACE/DIY/png/图标9.png app/src/main/res/drawable-hdpi/app_icon.png
